@@ -28,7 +28,7 @@ abstract class DataBase : RoomDatabase() {
             Room.databaseBuilder(
                 context.applicationContext,
                 DataBase::class.java,
-                "DoItDB.db",
+                "LeagueDB.db",
             )
                 .fallbackToDestructiveMigration()
                 .build()
