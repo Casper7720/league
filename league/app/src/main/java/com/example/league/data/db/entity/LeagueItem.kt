@@ -7,9 +7,9 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "LeagueItem")
 data class LeagueItem(
     @ColumnInfo(name = "league_title")
-    val name:String
+    var name: String
 ){
 
     @PrimaryKey(autoGenerate = true)
-    val id : Long? = null
+    var id : Long? = null
 }
