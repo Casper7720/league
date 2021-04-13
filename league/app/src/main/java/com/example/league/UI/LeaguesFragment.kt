@@ -9,12 +9,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.league.databinding.MenuFragmentBinding
 import com.example.league.other.LeagueAdapter
 
-class MenuFragment : Fragment() {
+class LeaguesFragment : Fragment() {
 
 
     private lateinit var adapter: LeagueAdapter
     private lateinit var binding: MenuFragmentBinding
     private lateinit var viewModel: ViewModelPresenter
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater,

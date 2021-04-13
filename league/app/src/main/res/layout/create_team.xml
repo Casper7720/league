@@ -6,73 +6,52 @@
     android:layout_height="wrap_content"
     android:padding="8dp">
 
-
     <TextView
-        android:id="@+id/create_league_title"
+        android:id="@+id/titleTextCreateTEamFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/create_new_league"
+        android:text="@string/create_new_team"
+        android:textSize="28sp"
         android:textColor="@color/black"
-        android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editLeagueName"
+        android:id="@+id/teamNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:ems="10"
         android:textCursorDrawable="@null"
         android:backgroundTint="@color/black"
-        android:ems="10"
-        android:hint="@string/enter_league_name"
+        android:hint="@string/enter_name_of_new_team"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_league_title" />
+        app:layout_constraintTop_toBottomOf="@+id/titleTextCreateTEamFragment" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_create_league"
+        android:id="@+id/buttonApproved"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/ok"
-        android:textColor="@color/black"
         android:layout_marginTop="8dp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_add_teams_to_league" />
+        app:layout_constraintTop_toBottomOf="@+id/teamNameEditText" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_cancel_to_menu"
+        android:id="@+id/buttonCancel"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/cancel"
         android:layout_marginTop="8dp"
+        android:text="@string/cancel"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@+id/button_create_league"
-        app:layout_constraintTop_toBottomOf="@+id/button_add_teams_to_league" />
-
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_add_teams_to_league"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/add_teams_to_league"
-        android:backgroundTint="@color/white"
-        android:textColor="@color/black"
-        app:icon="@drawable/ic_action_adding"
-        app:iconTint="@color/black"
-        app:iconGravity="textStart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editLeagueName"
-        app:cornerRadius="16dp"
-        app:strokeWidth="1dp"
-        app:strokeColor="@color/black"/>
-
-
-
-
-
+        app:layout_constraintEnd_toStartOf="@+id/buttonApproved"
+        app:layout_constraintTop_toBottomOf="@+id/teamNameEditText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
