@@ -6,11 +6,15 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <style name="Theme.App.Dialog.FullScreen"
-        parent="Theme.MaterialComponents.Dialog">
+    <style name="Theme.App.Dialog.FullScreen" parent="Theme.MaterialComponents.Dialog">
         <!-- (1)-->
         <item name="android:windowIsFloating">false</item>
         <!-- (2) -->
         <item name="android:windowBackground">@color/white</item>
+    </style>
+
+    <style name="Widget.Theme.League.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
     </style>
 </resources>

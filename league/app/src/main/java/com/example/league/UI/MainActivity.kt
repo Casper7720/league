@@ -2,17 +2,9 @@ package com.example.league.UI
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.ViewGroup
-import android.view.WindowManager
-import androidx.activity.viewModels
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
-import androidx.lifecycle.ViewModelProviders.DefaultFactory
 import com.example.league.R
 import com.example.league.databinding.ActivityMainBinding
-import com.example.league.other.LeagueAdapter
+import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,8 +15,40 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
+
         supportFragmentManager.beginTransaction()
-            .add(R.id.container, MenuFragment()).commit()
+            .replace(R.id.container, LeaguesFragment()).commit()
+
+
+
+
+        binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                when (tab?.position) {
+                    0 -> supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.container, LeaguesFragment())
+                        commit()
+                    }
+
+                    1 -> supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.container, TeamsFragment())
+                        commit()
+                    }
+                }
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+                // Handle tab reselect
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                // Handle tab unselect
+            }
+        })
+
     }
 }
 

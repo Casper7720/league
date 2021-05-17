@@ -1,12 +1,12 @@
 package com.example.league.other
 
 
-import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.league.UI.ViewModelPresenter
+import com.example.league.UI.LeagueActivity
+import com.example.league.UI.MainActivity
 import com.example.league.data.db.entity.LeagueItem
 import com.example.league.databinding.LeagueItemBinding
 
@@ -34,9 +34,14 @@ class LeagueAdapter(
             )
         )
 
-//        init {
-//
-//        }
+        init {
+            binding.root.setOnClickListener {
+                picked.pickedLeaguePosition = adapterPosition
+                val activity = itemView.context as? MainActivity
+                val intent: Intent = Intent(activity, LeagueActivity::class.java)
+                activity?.startActivity(intent)
+            }
+        }
     }
 
 

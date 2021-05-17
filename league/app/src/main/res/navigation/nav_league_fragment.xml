@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_league_fragment"
+    app:startDestination="@id/fragment_league_tournament_grid">
+
+    <fragment
+        android:id="@+id/gamesLeagueFragment"
+        android:name="com.example.league.UI.GamesLeagueFragment"
+        android:label="fragment_games_league"
+        tools:layout="@layout/fragment_games_league" >
+        <action
+            android:id="@+id/action_gamesLeagueFragment_to_fragment_league_tournament_grid"
+            app:destination="@id/fragment_league_tournament_grid" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_league_tournament_grid"
+        android:name="com.example.league.UI.LeagueTournamentGridFragment"
+        android:label="fragment_league_tournament_grid2"
+        tools:layout="@layout/fragment_league_tournament_grid" >
+        <action
+            android:id="@+id/action_fragment_league_tournament_grid_to_gamesLeagueFragment"
+            app:destination="@id/gamesLeagueFragment" />
+    </fragment>
+</navigation>

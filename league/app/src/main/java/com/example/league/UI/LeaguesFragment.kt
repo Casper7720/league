@@ -1,20 +1,24 @@
 package com.example.league.UI
 
-
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.league.databinding.MenuFragmentBinding
 import com.example.league.other.LeagueAdapter
 
-class MenuFragment : Fragment() {
+class LeaguesFragment : Fragment() {
 
 
     private lateinit var adapter: LeagueAdapter
     private lateinit var binding: MenuFragmentBinding
     private lateinit var viewModel: ViewModelPresenter
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
