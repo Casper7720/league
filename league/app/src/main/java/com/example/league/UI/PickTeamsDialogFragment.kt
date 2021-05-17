@@ -1,13 +1,14 @@
 package com.example.league.UI
 
-import android.content.Context
 import android.os.Bundle
-import android.util.DisplayMetrics
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import com.example.league.R
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.league.databinding.PickTeamsDialogBinding
 import com.example.league.other.AddingTeamsAdapter
+import com.example.league.other.picked
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
@@ -23,7 +24,6 @@ class PickTeamsDialogFragment : BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = PickTeamsDialogBinding.inflate(layoutInflater, container, false)
         viewModel = ViewModelProvider(requireActivity()).get(ViewModelPresenter::class.java)
         return binding.root
@@ -32,26 +32,23 @@ class PickTeamsDialogFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var fragmentRV: FragmentRV = FragmentRV()
-        adapter = AddingTeamsAdapter(listOf())
-        childFragmentManager.beginTransaction().apply {
-            replace(R.id.container_rv, fragmentRV)
-            commit()
-        }
 
+        adapter = AddingTeamsAdapter(listOf())
         viewModel.getAllTeams().observe(viewLifecycleOwner) {
             adapter.teams = it
             adapter.notifyDataSetChanged()
         }
+        binding.recyclerViewPickTeams.layoutManager = LinearLayoutManager(context)
+        binding.recyclerViewPickTeams.adapter = adapter
 
-    }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        var width = (resources.displayMetrics.widthPixels*0.9).toInt()
-        var height = -1
-        dialog?.window?.setLayout(width, height)
-
+        binding.imageButton.setOnClickListener {
+            picked.teams?.postValue(adapter.listTeams)
+            dismiss()
         }
 
+
+
+
+    }
 }

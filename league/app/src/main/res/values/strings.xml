@@ -16,4 +16,14 @@
     <string name="create_new_league">Create new League</string>
     <string name="default_text">default</string>
     <string name="pick_teams">Pick teams</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="team_name">team_name</string>
+    <string name="_10">10</string>
+    <string name="_100">100</string>
+    <string name="_63">63</string>
+    <string name="diff">:</string>
+    <string name="league_name">League_name</string>
+    <string name="hash_tag">#</string>
+    <string name="team">Team</string>
 </resources>
