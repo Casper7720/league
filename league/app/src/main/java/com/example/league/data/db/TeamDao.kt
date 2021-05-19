@@ -5,15 +5,13 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.league.data.db.entity.LeagueItem
 import com.example.league.data.db.entity.TeamItem
 
 @Dao
-interface Dao {
+interface TeamDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(leagueItem: LeagueItem)
+    suspend fun insert(teamItem: TeamItem)
 
-    @Query("SELECT * FROM LeagueItem")
-    fun getAllLeague() : LiveData<List<LeagueItem>>
-
+    @Query("SELECT * FROM TeamItem")
+    fun getAllTeams(): LiveData<List<TeamItem>>
 }

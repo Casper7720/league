@@ -1,15 +1,19 @@
 package com.example.league.data.db.entity
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
 
 @Entity(tableName = "LeagueItem")
+
 data class LeagueItem(
+
     @ColumnInfo(name = "league_title")
-    val name:String
+    var name: String,
+
+    @ColumnInfo(name = "list_teams")
+    var listTeams: MutableList<Int>
+
 ){
 
     @PrimaryKey(autoGenerate = true)
-    val id : Long? = null
+    var id : Int? = null
 }
