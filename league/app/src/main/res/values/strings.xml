@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">league</string>
+    <string name="app_name">League</string>
     <string name="new_league">Новая лига</string>
     <string name="input_name_league">Введите название лиги:</string>
     <string name="league">Лига</string>
@@ -26,4 +26,6 @@
     <string name="league_name">League_name</string>
     <string name="hash_tag">#</string>
     <string name="team">Team</string>
+    <string name="grid">Grid</string>
+    <string name="matches">Matches</string>
 </resources>

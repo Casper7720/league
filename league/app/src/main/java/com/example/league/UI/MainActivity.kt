@@ -2,6 +2,8 @@ package com.example.league.UI
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.View.*
 import com.example.league.R
 import com.example.league.UI.screens.LeagueTableFragment
 import com.example.league.UI.screens.LeaguesFragment
@@ -23,25 +25,21 @@ class MainActivity : AppCompatActivity() {
             if (it == true){
                 var fragmentLeagueTable = LeagueTableFragment()
 
+                binding.activityTab.visibility = INVISIBLE
+                binding.leagueTab.visibility = VISIBLE
+
                 supportFragmentManager.beginTransaction().apply {
                     replace(R.id.container, fragmentLeagueTable)
+                    addToBackStack("fragmentLeagueTable")
                     commit()
                 }
-
             }
-
-        }
-        var fragmentLeagueTable = LeagueTableFragment()
-
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.container, fragmentLeagueTable)
-            commit()
         }
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, LeaguesFragment()).commit()
 
-        binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+        binding.activityTab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
 
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 when (tab?.position) {
@@ -66,6 +64,12 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        binding.activityTab.visibility = VISIBLE
+        binding.leagueTab.visibility = INVISIBLE
     }
 }
 
