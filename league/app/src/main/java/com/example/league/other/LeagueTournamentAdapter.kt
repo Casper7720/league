@@ -4,14 +4,14 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.league.UI.LeagueActivity
 import com.example.league.UI.MainActivity
 import com.example.league.data.Team
 import com.example.league.data.db.entity.LeagueItem
+import com.example.league.data.db.entity.TeamItem
 import com.example.league.databinding.GridItemBinding
 import com.example.league.databinding.LeagueItemBinding
 
-class LeagueTournamentAdapter(var teams: List<Team>
+class LeagueTournamentAdapter(var teams: List<TeamItem>
 ) : RecyclerView.Adapter<LeagueTournamentAdapter.LeagueTournamentViewHolder>() {
 
 
@@ -21,12 +21,12 @@ class LeagueTournamentAdapter(var teams: List<Team>
         RecyclerView.ViewHolder(binding.root) {
 
 
-        fun bind(team: Team) {
+        fun bind(team: TeamItem) {
             binding.nameTeam.text = team.name
-            binding.gamesTeam.text = (team.winsGame+team.drawGame+team.looseGame).toString()
+            binding.gamesTeam.text = (team.winGames+team.drawGames+team.looseGames).toString()
             binding.goalsTeamWin.text = team.goalsWin.toString()
             binding.goalsTeamLose.text = team.goalsLoose.toString()
-            binding.pointsTeam.text = (team.winsGame*3+team.drawGame).toString()
+            binding.pointsTeam.text = (team.winGames*3+team.drawGames).toString()
 
         }
 

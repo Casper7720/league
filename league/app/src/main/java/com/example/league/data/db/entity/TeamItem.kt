@@ -11,7 +11,22 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class TeamItem(
     @ColumnInfo(name = "TeamName")
-    var name: String
+    var name: String,
+
+    @ColumnInfo(name = "WinGames")
+    var winGames: Int = 0,
+
+    @ColumnInfo(name = "LooseGames")
+    var looseGames: Int = 0,
+
+    @ColumnInfo(name = "DrawGames")
+    var drawGames: Int = 0,
+
+    @ColumnInfo(name = "GoalWin")
+    var goalsWin: Int = 0,
+
+    @ColumnInfo(name = "GoalLoose")
+    var goalsLoose: Int = 0
 ) : Parcelable{
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null

@@ -1,23 +1,26 @@
-package com.example.league.UI
+package com.example.league.UI.screens
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewOutlineProvider
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.league.R
+import com.example.league.UI.AppViewModelFactory
+import com.example.league.UI.ViewModelPresenter
+import com.example.league.UI.dialogs.CreateTeamFragment
 import com.example.league.databinding.FragmentTeamsBinding
-import com.example.league.databinding.TeamItemBinding
+import com.example.league.other.AppApplication
 import com.example.league.other.TeamAdapter
 
 
 class TeamsFragment : Fragment() {
 
     private lateinit var binding: FragmentTeamsBinding
-    private lateinit var viewModel: ViewModelPresenter
+    private val viewModel: ViewModelPresenter by viewModels {
+        AppViewModelFactory((activity?.application as AppApplication).repository)
+    }
     private lateinit var adapter: TeamAdapter
 
 
@@ -26,7 +29,6 @@ class TeamsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentTeamsBinding.inflate(layoutInflater, container, false)
-        viewModel = ViewModelProvider(requireActivity()).get(ViewModelPresenter::class.java)
         return binding.root
     }
 
@@ -37,7 +39,7 @@ class TeamsFragment : Fragment() {
         binding.teamsRecycler.layoutManager = LinearLayoutManager(requireContext())
         binding.teamsRecycler.adapter = adapter
 
-        viewModel.getAllTeams().observe(requireActivity()){
+        viewModel.getAllTeams().observe(requireActivity()){it->
             adapter.teams = it
             adapter.notifyDataSetChanged()
         }

@@ -7,7 +7,7 @@ import com.example.league.data.db.entity.TeamItem
 
 @Database(
     entities = [LeagueItem::class, TeamItem::class],
-    version = 5
+    version = 6
 )
 @TypeConverters(TeamConverter::class)
 abstract class DataBase : RoomDatabase() {
@@ -24,7 +24,7 @@ abstract class DataBase : RoomDatabase() {
             instance ?: createDataBase(context).also { instance = it }
         }
 
-        private fun createDataBase(context: Context) =
+        fun createDataBase(context: Context) =
             Room.databaseBuilder(
                 context.applicationContext,
                 DataBase::class.java,
