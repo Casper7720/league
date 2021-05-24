@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.observe
 import com.example.league.UI.AppViewModelFactory
 import com.example.league.UI.ViewModelPresenter
 import com.example.league.data.db.entity.LeagueItem

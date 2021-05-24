@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.View.*
+import androidx.lifecycle.observe
 import com.example.league.R
 import com.example.league.UI.screens.LeagueTableFragment
 import com.example.league.UI.screens.LeaguesFragment
@@ -35,9 +36,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, LeaguesFragment()).commit()
 
         binding.activityTab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
 
