@@ -2,6 +2,7 @@ package com.example.league.UI
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.observe
 import com.example.league.R
 import com.example.league.UI.screens.LeagueTableFragment
 import com.example.league.UI.screens.LeaguesFragment
@@ -30,12 +31,6 @@ class MainActivity : AppCompatActivity() {
 
             }
 
-        }
-        var fragmentLeagueTable = LeagueTableFragment()
-
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.container, fragmentLeagueTable)
-            commit()
         }
 
         supportFragmentManager.beginTransaction()
