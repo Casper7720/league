@@ -1,15 +1,10 @@
 package com.example.league.other
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.league.UI.MainActivity
-import com.example.league.data.Team
-import com.example.league.data.db.entity.LeagueItem
 import com.example.league.data.db.entity.TeamItem
 import com.example.league.databinding.GridItemBinding
-import com.example.league.databinding.LeagueItemBinding
 
 class LeagueTournamentAdapter(var teams: List<TeamItem>
 ) : RecyclerView.Adapter<LeagueTournamentAdapter.LeagueTournamentViewHolder>() {

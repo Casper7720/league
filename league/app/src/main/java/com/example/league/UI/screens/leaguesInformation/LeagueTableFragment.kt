@@ -1,4 +1,4 @@
-package com.example.league.UI.screens
+package com.example.league.UI.screens.leaguesInformation
 
 import android.os.Bundle
 import android.os.Handler

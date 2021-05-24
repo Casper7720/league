@@ -2,18 +2,23 @@ package com.example.league.data.db
 
 import android.content.Context
 import androidx.room.*
+import com.example.league.data.db.dao.Dao
+import com.example.league.data.db.dao.PlayerDao
+import com.example.league.data.db.dao.TeamDao
 import com.example.league.data.db.entity.LeagueItem
+import com.example.league.data.db.entity.PlayerItem
 import com.example.league.data.db.entity.TeamItem
 
 @Database(
-    entities = [LeagueItem::class, TeamItem::class],
-    version = 6
+    entities = [LeagueItem::class, TeamItem::class, PlayerItem::class],
+    version = 7
 )
 @TypeConverters(TeamConverter::class)
 abstract class DataBase : RoomDatabase() {
 
     abstract fun getDao(): Dao
     abstract fun getTeamDao(): TeamDao
+    abstract fun getPlayerDao(): PlayerDao
 
     companion object {
         @Volatile

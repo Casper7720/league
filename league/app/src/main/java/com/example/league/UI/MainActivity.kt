@@ -2,14 +2,15 @@ package com.example.league.UI
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.view.View.*
 import androidx.lifecycle.observe
 import com.example.league.R
-import com.example.league.UI.screens.LeagueTableFragment
-import com.example.league.UI.screens.LeaguesFragment
-import com.example.league.UI.screens.TeamsFragment
+import com.example.league.UI.screens.leaguesInformation.LeagueTableFragment
+import com.example.league.UI.screens.mainInformation.FragmentPlayers
+import com.example.league.UI.screens.mainInformation.LeaguesFragment
+import com.example.league.UI.screens.mainInformation.TeamsFragment
 import com.example.league.databinding.ActivityMainBinding
+import com.example.league.other.PlayerAdapter
 import com.example.league.other.picked
 import com.google.android.material.tabs.TabLayout
 
@@ -24,7 +25,8 @@ class MainActivity : AppCompatActivity() {
 
         picked.openLegue.observe(this){
             if (it == true){
-                var fragmentLeagueTable = LeagueTableFragment()
+                var fragmentLeagueTable =
+                    LeagueTableFragment()
 
                 binding.activityTab.visibility = INVISIBLE
                 binding.leagueTab.visibility = VISIBLE
@@ -42,12 +44,23 @@ class MainActivity : AppCompatActivity() {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 when (tab?.position) {
                     0 -> supportFragmentManager.beginTransaction().apply {
-                        replace(R.id.container, LeaguesFragment())
+                        replace(R.id.container,
+                            LeaguesFragment()
+                        )
                         commit()
                     }
 
                     1 -> supportFragmentManager.beginTransaction().apply {
-                        replace(R.id.container, TeamsFragment())
+                        replace(R.id.container,
+                            TeamsFragment()
+                        )
+                        commit()
+                    }
+
+                    2 -> supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.container,
+                            FragmentPlayers()
+                        )
                         commit()
                     }
                 }

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="?attr/fullscreenBackgroundColor"
     android:theme="@style/ThemeOverlay.League.FullscreenContainer"
-    tools:context=".UI.screens.LeagueTableFragment">
+    tools:context=".UI.screens.leaguesInformation.LeagueTableFragment">
 
 
 

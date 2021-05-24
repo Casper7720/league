@@ -1,4 +1,4 @@
-package com.example.league.data.db
+package com.example.league.data.db.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

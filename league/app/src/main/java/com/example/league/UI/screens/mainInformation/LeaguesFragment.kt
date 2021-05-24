@@ -1,4 +1,4 @@
-package com.example.league.UI.screens
+package com.example.league.UI.screens.mainInformation
 
 import android.os.Bundle
 import android.view.LayoutInflater

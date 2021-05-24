@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.example.league.data.db.DataBase
 import com.example.league.data.db.entity.LeagueItem
+import com.example.league.data.db.entity.PlayerItem
 import com.example.league.data.db.entity.TeamItem
 import com.example.league.data.repository.Repository
 import kotlinx.coroutines.Dispatchers
@@ -30,6 +31,12 @@ class ViewModelPresenter(private var repository: Repository) : ViewModel(){
     }
 
     fun getAllTeams() = repository.getAllTeams()
+
+    fun insert(playerItem: PlayerItem) = viewModelScope.launch(Dispatchers.IO){
+        repository.insert(playerItem)
+    }
+
+    fun getAllPlayers() = repository.getAllPlayers()
 
 }
 class AppViewModelFactory(private val repository: Repository) : ViewModelProvider.Factory {
