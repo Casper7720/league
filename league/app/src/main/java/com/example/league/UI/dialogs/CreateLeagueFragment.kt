@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import com.example.league.UI.AppViewModelFactory
 import com.example.league.UI.ViewModelPresenter
+import com.example.league.data.Game
 import com.example.league.data.db.entity.LeagueItem
 import com.example.league.data.db.entity.TeamItem
 import com.example.league.databinding.CreateLeagueBinding
@@ -58,6 +59,20 @@ class CreateLeagueFragment : DialogFragment() {
             listTeams = it
         }
 
+        //refactor
+        var player = viewModel.getAllPlayers().value?.get(0)
+        var listGames = listOf(Game(player!!.name,
+                                            player!!.name,
+                                            listTeams.get(0).name,
+                                            listTeams.get(0).name,
+                        0,
+                        0),
+            Game(player!!.name,
+                player!!.name,
+                listTeams.get(0).name,
+                listTeams.get(0).name,
+                0,
+                0))
 
         binding.buttonCreateLeague.setOnClickListener {
             if (binding.editLeagueName.text.isNotEmpty() && listTeams.isNotEmpty()) {
@@ -66,7 +81,7 @@ class CreateLeagueFragment : DialogFragment() {
                 }
                 picked.teams?.postValue(listOf())
                 val name = binding.editLeagueName.text.toString()
-                val league = LeagueItem(name, listId)
+                val league = LeagueItem(name, player!!, player!!, listGames, viewModel.getAllTeams().value!!)
                 viewModel.insert(league)
                 dismiss()
             } else {

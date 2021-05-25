@@ -4,10 +4,21 @@ import android.os.Parcelable
 import androidx.recyclerview.widget.DiffUtil
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
-@Entity(tableName = "TeamItem")
+
+@Entity(
+    tableName = "TeamItem",
+    foreignKeys = [
+        ForeignKey(
+            entity = LeagueItem::class,
+            parentColumns = ["id"],
+            childColumns = ["league_id_in_team"]
+        )
+    ]
+)
 @Parcelize
 data class TeamItem(
     @ColumnInfo(name = "TeamName")
@@ -27,8 +38,11 @@ data class TeamItem(
 
     @ColumnInfo(name = "GoalLoose")
     var goalsLoose: Int = 0
-) : Parcelable{
+) : Parcelable {
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null
+
+    @ColumnInfo(name = "league_id_in_team")
+    var leagueId: Int? = null
 
 }

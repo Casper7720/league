@@ -38,13 +38,9 @@ class LeagueTableFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val league = viewModel.getAllLeague().value?.get(0)
+        adapter = LeagueTournamentAdapter(league!!.listTeams)
 
-
-        adapter = LeagueTournamentAdapter(listOf())
-        viewModel.getAllTeams().observe(requireActivity()){
-            adapter.teams = it
-            adapter.notifyDataSetChanged()
-        }
 
         binding.recyclerViewTournament.layoutManager = LinearLayoutManager(requireActivity())
         binding.recyclerViewTournament.adapter = adapter

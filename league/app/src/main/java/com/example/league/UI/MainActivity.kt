@@ -2,10 +2,9 @@ package com.example.league.UI
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-<<<<<<< HEAD
-import android.view.View.*
-=======
->>>>>>> master
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
+
 import androidx.lifecycle.observe
 import com.example.league.R
 import com.example.league.UI.screens.leaguesInformation.LeagueTableFragment
@@ -13,7 +12,6 @@ import com.example.league.UI.screens.mainInformation.FragmentPlayers
 import com.example.league.UI.screens.mainInformation.LeaguesFragment
 import com.example.league.UI.screens.mainInformation.TeamsFragment
 import com.example.league.databinding.ActivityMainBinding
-import com.example.league.other.PlayerAdapter
 import com.example.league.other.picked
 import com.google.android.material.tabs.TabLayout
 
@@ -26,10 +24,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        picked.openLegue.observe(this){
-            if (it == true){
-                var fragmentLeagueTable =
-                    LeagueTableFragment()
+        picked.openLegue.observe(this) {
+            if (it == true) {
+                var fragmentLeagueTable = LeagueTableFragment()
 
                 binding.activityTab.visibility = INVISIBLE
                 binding.leagueTab.visibility = VISIBLE
@@ -41,33 +38,33 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-<<<<<<< HEAD
-=======
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, LeaguesFragment()).commit()
->>>>>>> master
 
         binding.activityTab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
 
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 when (tab?.position) {
                     0 -> supportFragmentManager.beginTransaction().apply {
-                        replace(R.id.container,
+                        replace(
+                            R.id.container,
                             LeaguesFragment()
                         )
                         commit()
                     }
 
                     1 -> supportFragmentManager.beginTransaction().apply {
-                        replace(R.id.container,
+                        replace(
+                            R.id.container,
                             TeamsFragment()
                         )
                         commit()
                     }
 
                     2 -> supportFragmentManager.beginTransaction().apply {
-                        replace(R.id.container,
+                        replace(
+                            R.id.container,
                             FragmentPlayers()
                         )
                         commit()
